@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Weight Converter</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <style>
+    body{
+      margin-top: 5%;
+      background: #333;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h1 class="display-4 text-center">Weight Converter</h1>
+        <form>
+          <div class="form-group">
+            <input type="number" class="form-control form-control-lg" placeholder="Type weight in grams" id="userInput">
+          </div>
+        <!--  <div class="form-group">
+              <input type="radio" name="kg" class="form-check-input" value="KG">
+              <input type="radio" name="lb" class="form-check-input" value="Lbs">
+              <input type="radio" name="oz" class="form-check-input" value="oZ">
+          </div> -->
+        </form>
+        <div id="results">
+          <div class="card card-warning mb-2">
+            <div class="card-block">
+              <div class="card card-warning">
+                <h4>Kilos:</h4>
+                <div><p id="kgs"></p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-success mb-2">
+            <div class="card-block">
+              <div class="card card-success">
+                <h4>Pounds:</h4>
+                <div><p id="lbs"></p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-primary mb-2">
+            <div class="card-block">
+              <div class="card card-primary">
+                <h4>Ounces:</h4>
+                <div><p id="oz"></p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+    <script>
+      $(document).ready(function(){
+        $("form").submit(function(e){
+          e.preventDefault(e);
+        })
+        $("#userInput").click(function(){
+          input = $('#userInput').val();
+          console.log(input);
+          $("#kgs").text(function(){
+            return input/1000
+          });
+
+          $("#lbs").text(function(){
+            return input*0.00220462
+          });
+
+          $("#oz").text(function(){
+            return input*0.035274
+          });
+        });
+      });
+    </script>
+</body>
+</html>
